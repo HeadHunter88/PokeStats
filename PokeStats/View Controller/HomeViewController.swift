@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var mainImageView: UIImageView!
     
     var pokedex: [Pokemon] = []
+    var currentPokemonIdx: Int?
+    var currentPokemon: PokemonInfo?
     
     init?(coder: NSCoder, pokedex: [Pokemon]) {
         self.pokedex = pokedex
@@ -24,8 +26,7 @@ class HomeViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        //fatalError("Use `init(coder:image:)` to initialize an `HomeViewController` instance.")
+        fatalError("Error")
     }
     
     override func viewDidLoad() {
@@ -48,24 +49,55 @@ class HomeViewController: UIViewController {
         loadRandomPokemon()
     }
     
-    //Original Sprite - "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(randomItemIdx).png"
-    //Original Artwork - "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(randomItemIdx).png"
     func loadRandomPokemon() {
-        let randomItemIdx = pokedex.indices.randomElement()!
-        let pokemonName: String = pokedex[randomItemIdx].name
+        currentPokemonIdx = pokedex.indices.randomElement()!
+        let pokemonName: String = pokedex[currentPokemonIdx!].name
         
         namePokemonLabel.text = pokemonName.capitalizeFirstLetter()
         
-        let urlImg = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(randomItemIdx+1).png"
-        KF.url(URL(string: urlImg))
-            .placeholder(UIImage(named: "WhoIsPlaceholder.png"))
+        KF.url(URL(string: getOfficialArtwork()))
+            .placeholder(UIImage(named: DetailStrings.placeholder.localized()))
             .loadDiskFileSynchronously()
             .cacheMemoryOnly()
             .fade(duration: 0.25)
-            .onSuccess{ result in }
+            .onSuccess{ result in
+                let imageTap = UITapGestureRecognizer(target: self, action: #selector(self.ShowPokemonDetail))
+                self.mainImageView.isUserInteractionEnabled = true
+                self.mainImageView.addGestureRecognizer(imageTap)
+            }
             .onFailure{ result in }
             .set(to: mainImageView)
+        
+        API.getPokemonInfo(urlArg: pokedex[currentPokemonIdx!].url, completion: { result in
+            DispatchQueue.main.async { [weak self] in
+                switch result {
+                    case let .success(currentPokemon):
+                        self?.currentPokemon = currentPokemon
+                    
+                    case let .failure(error):
+                        print("\(error)")
+                }
+            }
+        })
+        
     }
+    
+    @objc func ShowPokemonDetail(pokemonIdx: Int){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(identifier: "DetailView", creator: { coder -> PokemonDetailViewController? in
+            PokemonDetailViewController(coder: coder, pokemon: self.currentPokemon!)
+        })
+        //viewController
+        self.present(viewController, animated: true)
+    
+    }
+    
+    func getOfficialArtwork() -> String {
+        let retString = "\(DetailStrings.artwork.localized())\(currentPokemonIdx!+1)\(DetailStrings.imgFormat.localized())"
+        return retString
+    }
+    
 }
 
 extension String {

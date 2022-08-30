@@ -16,63 +16,63 @@
 import Foundation
 
 // MARK: - Pokedex
-struct Pokedex: Codable {
+class Pokedex: Codable {
     let count: Int
     let results: [Pokemon]
     
 }
 
 // MARK: - Result
-struct Pokemon: Codable {
+class Pokemon: Codable {
     let name: String
     let url: String
     
 }
 
 // MARK: - Pokemon Info
-struct PokemonInfo: Codable {
-    let abilities: [Ability]?
+class PokemonInfo: Codable {
+    let abilities: [Abilities]
     let baseExperience: Int?
     let forms: [Species]?
     let gameIndices: [GameIndex]?
-    let height: Int?
+    let height: Float
     let heldItems: [HeldItem]?
-    let id: Int?
+    let id: Int
     let isDefault: Bool?
     let locationAreaEncounters: String?
-    let moves: [Move]?
+    let moves: [Attack]
     let name: String?
     let order: Int?
     let pastTypes: [PastType]?
-    let species: Species?
-    let sprites: Sprites?
+    let species: Species
+    let sprites: Sprites
     let stats: [Stat]?
     let types: [TypeElement]?
     let weight: Int?
 }
 
 // MARK: - Ability
-struct Ability: Codable {
-    let ability: Species?
+class Abilities: Codable {
+    let ability: Ability
     let isHidden: Bool?
     let slot: Int?
 }
 
 // MARK: - Species
-struct Species: Codable {
-    let name: String?
+class Species: Codable {
+    let name: String
     let url: String?
 }
 
 // MARK: - GameIndex
-struct GameIndex: Codable {
+class GameIndex: Codable {
     let gameIndex: Int?
     let version: Species?
 }
 
 // MARK: - Move
-struct Move: Codable {
-    let move: Species?
+class Attack: Codable {
+    let move: MoveInfo
     let versionGroupDetails: [VersionGroupDetail]?
 }
 
@@ -83,7 +83,7 @@ struct VersionGroupDetail: Codable {
 }
 
 // MARK: - GenerationV
-struct GenerationV: Codable {
+class GenerationV: Codable {
     let blackWhite: Sprites?
 }
 
@@ -93,7 +93,7 @@ struct GenerationIv: Codable {
 }
 
 // MARK: - Versions
-struct Versions: Codable {
+class Versions: Codable {
     let generationI: GenerationI?
     let generationIi: GenerationIi?
     let generationIii: GenerationIii?
@@ -120,47 +120,47 @@ class Sprites: Codable {
 }
 
 // MARK: - GenerationI
-struct GenerationI: Codable {
+class GenerationI: Codable {
     let redBlue, yellow: RedBlue?
 }
 
 // MARK: - RedBlue
-struct RedBlue: Codable {
+class RedBlue: Codable {
     let backDefault, backGray, backTransparent, frontDefault: String?
     let frontGray, frontTransparent: String?
 }
 
 // MARK: - GenerationIi
-struct GenerationIi: Codable {
+class GenerationIi: Codable {
     let crystal: Crystal?
     let gold, silver: Gold?
 }
 
 // MARK: - Crystal
-struct Crystal: Codable {
+class Crystal: Codable {
     let backDefault, backShiny, backShinyTransparent, backTransparent: String?
     let frontDefault, frontShiny, frontShinyTransparent, frontTransparent: String?
 }
 
 // MARK: - Gold
-struct Gold: Codable {
+class Gold: Codable {
     let backDefault, backShiny, frontDefault, frontShiny: String?
     let frontTransparent: String?
 }
 
 // MARK: - GenerationIii
-struct GenerationIii: Codable {
+class GenerationIii: Codable {
     let emerald: Emerald?
     let fireredLeafgreen, rubySapphire: Gold?
 }
 
 // MARK: - Emerald
-struct Emerald: Codable {
+class Emerald: Codable {
     let frontDefault, frontShiny: String?
 }
 
 // MARK: - Home
-struct Home: Codable {
+class Home: Codable {
     let frontDefault: String?
     let frontFemale: String?
     let frontShiny: String?
@@ -168,60 +168,78 @@ struct Home: Codable {
 }
 
 // MARK: - GenerationVii
-struct GenerationVii: Codable {
+class GenerationVii: Codable {
     let icons: DreamWorld?
     let ultraSunUltraMoon: Home?
 }
 
 // MARK: - DreamWorld
-struct DreamWorld: Codable {
+class DreamWorld: Codable {
     let frontDefault: String?
     let frontFemale: String?
 }
 
 // MARK: - GenerationViii
-struct GenerationViii: Codable {
+class GenerationViii: Codable {
     let icons: DreamWorld?
 }
 
 // MARK: - Other
-struct Other: Codable {
+class Other: Codable {
     let dreamWorld: DreamWorld?
     let home: Home?
     let officialArtwork: OfficialArtwork?
 }
 
 // MARK: - OfficialArtwork
-struct OfficialArtwork: Codable {
+class OfficialArtwork: Codable {
     let frontDefault: String?
 }
 
 // MARK: - Stat
-struct Stat: Codable {
+class Stat: Codable {
     let baseStat, effort: Int?
     let stat: Species?
 }
 
 // MARK: - TypeElement
-struct TypeElement: Codable {
+class TypeElement: Codable {
     let slot: Int?
     let type: Species?
 }
 
 // MARK: - HeldItem
-struct HeldItem: Codable {
-    let item: Species?
+class HeldItem: Codable {
+    let item: HeldItemInfo
     let versionDetails: [VersionDetail]?
 }
 
 // MARK: - VersionDetail
-struct VersionDetail: Codable {
+class VersionDetail: Codable {
     let rarity: Int?
     let version: Species?
 }
 
 // MARK: - PastType
-struct PastType: Codable {
+class PastType: Codable {
     let generation: Species?
     let types: [TypeElement]?
+}
+
+// MARK: - Ability
+class Ability: Codable {
+    let name: String
+    let url: String
+}
+
+// MARK: - HeldItemInfo
+class HeldItemInfo: Codable {
+    let name: String
+    let url: String?
+}
+
+// MARK: - MoveInfo
+class MoveInfo: Codable {
+    let name: String
+    let url: String?
 }

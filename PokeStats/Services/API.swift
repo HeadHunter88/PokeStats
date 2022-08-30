@@ -9,7 +9,7 @@ import Foundation
 
 class API{
     
-    static let baseURL = "https://pokeapi.co/api/v2/"
+    static let baseURL = DetailStrings.baseUrl.localized()
     
     private enum Endpoint {
         case pokedex
@@ -17,7 +17,7 @@ class API{
         var path: String {
             switch self {
                 case .pokedex:
-                    return "pokemon/?offset=0&limit=151"
+                return "\(DetailStrings.pokedexUrl.localized())\(DetailStrings.amountToSearchFor.localized())"
                 }
         }
         var url: String {

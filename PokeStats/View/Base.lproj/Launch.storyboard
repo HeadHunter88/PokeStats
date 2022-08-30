@@ -33,14 +33,28 @@
                                             <constraint firstAttribute="width" secondItem="hMW-19-nbB" secondAttribute="height" multiplier="1:1" id="uXa-gd-SP1"/>
                                         </constraints>
                                     </activityIndicatorView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0I-Oa-1R8" userLabel="RetryButton">
+                                        <rect key="frame" x="206.5" y="299.5" width="155" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="qmm-as-Rm8"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system" title="Retry Connection" imagePadding="0.0"/>
+                                        <connections>
+                                            <action selector="retryEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tS2-e9-yJC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="JuI-3B-mDp" firstAttribute="leading" secondItem="wE0-j4-oc8" secondAttribute="leading" id="Ohf-7d-fpn"/>
                                     <constraint firstItem="JuI-3B-mDp" firstAttribute="top" secondItem="wE0-j4-oc8" secondAttribute="top" id="Pwd-Fq-sPK"/>
                                     <constraint firstAttribute="trailing" secondItem="JuI-3B-mDp" secondAttribute="trailing" id="gwK-7e-en0"/>
                                     <constraint firstItem="hMW-19-nbB" firstAttribute="top" secondItem="JuI-3B-mDp" secondAttribute="bottom" constant="-20" id="kjs-uJ-Ivj"/>
+                                    <constraint firstItem="S0I-Oa-1R8" firstAttribute="centerX" secondItem="wE0-j4-oc8" secondAttribute="centerX" id="kw7-Bs-PZe"/>
                                     <constraint firstItem="hMW-19-nbB" firstAttribute="centerX" secondItem="wE0-j4-oc8" secondAttribute="centerX" id="mE6-k7-6ka"/>
                                     <constraint firstAttribute="bottom" secondItem="hMW-19-nbB" secondAttribute="bottom" constant="10" id="nOc-ER-F6z"/>
+                                    <constraint firstAttribute="bottom" secondItem="S0I-Oa-1R8" secondAttribute="bottom" constant="10" id="zds-72-8Om"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -54,6 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="loadingIndicator" destination="hMW-19-nbB" id="Afy-LT-Z0S"/>
+                        <outlet property="retryButton" destination="S0I-Oa-1R8" id="fah-fM-Tt1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -63,6 +78,7 @@
     </scenes>
     <resources>
         <image name="PokemonLaunchLogo.png" width="2000" height="1125"/>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -86,9 +86,64 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="84.375"/>
         </scene>
+        <!--Pokemon Detail View Controller-->
+        <scene sceneID="AXT-dg-DNG">
+            <objects>
+                <viewController storyboardIdentifier="DetailView" modalPresentationStyle="fullScreen" id="JZJ-GH-dgG" customClass="PokemonDetailViewController" customModule="PokeStats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TJJ-Is-e1z">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mu1-UN-1Ru" userLabel="PokemonImage">
+                                <rect key="frame" x="234" y="40" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="LYr-ZG-8zw"/>
+                                    <constraint firstAttribute="height" constant="300" id="g3s-VK-Vsa"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yju-0O-D9R" userLabel="InfoTableView">
+                                <rect key="frame" x="50" y="360" width="668" height="644"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka3-jO-EEO" userLabel="BackButton">
+                                <rect key="frame" x="35" y="25" width="45" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.backward.circle.fill" catalog="system" imagePadding="0.0"/>
+                                <connections>
+                                    <action selector="closePopup:" destination="JZJ-GH-dgG" eventType="touchUpInside" id="zEH-Y7-uBT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Gfw-w3-SMh"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="Gfw-w3-SMh" firstAttribute="trailing" secondItem="yju-0O-D9R" secondAttribute="trailing" constant="50" id="ByO-vI-ikm"/>
+                            <constraint firstItem="Gfw-w3-SMh" firstAttribute="bottom" secondItem="yju-0O-D9R" secondAttribute="bottom" constant="20" id="Dc2-8p-lBn"/>
+                            <constraint firstItem="yju-0O-D9R" firstAttribute="leading" secondItem="Gfw-w3-SMh" secondAttribute="leading" constant="50" id="ELN-xv-pHy"/>
+                            <constraint firstItem="mu1-UN-1Ru" firstAttribute="top" secondItem="Gfw-w3-SMh" secondAttribute="top" constant="20" id="IQe-Yp-3ap"/>
+                            <constraint firstItem="mu1-UN-1Ru" firstAttribute="centerX" secondItem="TJJ-Is-e1z" secondAttribute="centerX" id="bOF-8D-hQ6"/>
+                            <constraint firstItem="yju-0O-D9R" firstAttribute="top" secondItem="mu1-UN-1Ru" secondAttribute="bottom" constant="20" id="wTZ-VR-1JH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Yzi-0s-mg5"/>
+                    <connections>
+                        <outlet property="backButton" destination="Ka3-jO-EEO" id="yPy-iz-gcI"/>
+                        <outlet property="infoTable" destination="yju-0O-D9R" id="Kwc-uE-07b"/>
+                        <outlet property="pokemonImage" destination="mu1-UN-1Ru" id="WdR-W3-3hb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xcF-Mi-QJA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800" y="83.7890625"/>
+        </scene>
     </scenes>
     <resources>
         <image name="WhoIsPlaceholder.png" width="693" height="690"/>
+        <image name="arrowtriangle.backward.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
