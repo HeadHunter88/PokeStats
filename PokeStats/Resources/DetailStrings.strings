@@ -1,0 +1,25 @@
+/* 
+  DetailStrings.strings
+  PokeStats
+
+  Created by Carolina Duartr on 30/08/2022.
+  
+*/
+//Original Sprite - "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(randomItemIdx).png"
+//Original Artwork - "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(randomItemIdx).png"
+"baseUrl" = "https://pokeapi.co/api/v2/";
+"pokedexUrl" = "pokemon/?offset=0&limit=";
+"amountToSearchFor" = "905";
+"placeholder" = "WhoIsPlaceholder.png";
+"frontSprite" = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
+"artwork" = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
+"imgFormat" = ".png";
+"orderStart" = "It is the number";
+"orderEnd" = "of the 900+ there are.";
+"heightStart" = "It is ";
+"heightEnd" = "inches tall";
+"abilities" = "It can have the following abilities: ";
+"heldItems" = "It can randomly hold the following items while on the wild: ";
+"species" = "It is part of the following species: ";
+"moves" = "The moves it can learn are: ";
+"none" = "none";

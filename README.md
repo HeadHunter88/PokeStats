@@ -1,1 +1,1 @@
-# PokeStats
+# PokeStatsIOS
