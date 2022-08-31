@@ -1,5 +1,7 @@
 # PokeStats
 
+It was created for iPad, and it supports orientation changes.
+
 The app is build using the Pokeapi.co to get the Pokemon Information, there are currently 905 Pokemon being loaded into the application.
 
 It is only using the base Pokemons, not searching for any of the regional specific version.
@@ -13,6 +15,7 @@ This is the Home Screen of the application, clicking the Pokemon picture will ta
 Once you click the Pokemon image, you are taken to the Detail Screen.
 
 ![Detail Screen](https://i.ibb.co/GnkdfYW/Detail-Screen.png)
+
 This screen shows you the original Pokedex Sprite image of the pokemon, along with some informations regarding the Pokemon.
 
 This app was developed as just a means to test an api, and try out some basic funcionality.
