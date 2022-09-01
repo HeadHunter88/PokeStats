@@ -1,6 +1,6 @@
 # PokeStats
 
-It was created for iPad, and it supports orientation changes.
+It was created for iPhone and iPad, and it supports orientation changes on iPad, on iPhone was not fully tested.
 
 The app is build using the Pokeapi.co to get the Pokemon Information, there are currently 905 Pokemon being loaded into the application.
 
