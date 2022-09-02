@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import Kingfisher
 
 class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -40,58 +39,56 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func loadData(){
         
         self.infoTable.register(UITableViewCell.self, forCellReuseIdentifier: cellIndentifier)
+        self.infoTable.register(UINib(nibName: "PokemonUITableViewCell", bundle: nil), forCellReuseIdentifier: "PokemonUITableViewCell")
         infoTable.delegate = self
         infoTable.dataSource = self
         
-        KF.url(URL(string: getOfficialSprite()))
-            .placeholder(UIImage(named: DetailStrings.placeholder.localized()))
-            .loadDiskFileSynchronously()
-            .cacheMemoryOnly()
-            .fade(duration: 0.25)
-            .onSuccess{ result in }
-            .onFailure{ result in }
-            .set(to: pokemonImage)
+        
     }
     @IBAction func closePopup(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
             case 0:
+            let cell: PokemonUITableViewCell = self.infoTable.dequeueReusableCell(withIdentifier: "PokemonUITableViewCell") as! PokemonUITableViewCell
+                cell.setImage(url: getOfficialSprite())
+                return cell
+            case 1:
                 let cell: UITableViewCell = self.infoTable.dequeueReusableCell(withIdentifier: cellIndentifier)! as UITableViewCell
                 cell.textLabel!.text = "\(DetailStrings.orderStart.localized()) \(self.pokemon.id) \(DetailStrings.orderEnd.localized())"
                 cell.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
                 return cell
-            case 1:
+            case 2:
                 let cell: UITableViewCell = self.infoTable.dequeueReusableCell(withIdentifier: cellIndentifier)! as UITableViewCell
                 cell.textLabel!.text = "\(DetailStrings.heightStart.localized()) \(self.pokemon.height) \(DetailStrings.heightEnd.localized())"
                 cell.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
                 return cell
-            case 2:
+            case 3:
                 let cell: UITableViewCell = self.infoTable.dequeueReusableCell(withIdentifier: cellIndentifier)! as UITableViewCell
                 cell.textLabel!.text = "\(DetailStrings.abilities.localized()) \(self.getAbilitiesString())"
                 cell.textLabel!.numberOfLines = 0
                 cell.textLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
                 cell.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
                 return cell
-            case 3:
+            case 4:
                 let cell: UITableViewCell = self.infoTable.dequeueReusableCell(withIdentifier: cellIndentifier)! as UITableViewCell
                 cell.textLabel!.text = "\(DetailStrings.heldItems.localized()) \(self.getHeldItems())"
                 cell.textLabel!.numberOfLines = 0
                 cell.textLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
                 cell.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
                 return cell
-            case 4:
+            case 5:
                 let cell: UITableViewCell = self.infoTable.dequeueReusableCell(withIdentifier: cellIndentifier)! as UITableViewCell
                 cell.textLabel!.text = "\(DetailStrings.species.localized()) \(self.pokemon.species.name)"
                 cell.backgroundColor = UIColor.gray.withAlphaComponent(0.4)
                 return cell
-            case 5:
+            case 6:
                 let cell: UITableViewCell = self.infoTable.dequeueReusableCell(withIdentifier: cellIndentifier)! as UITableViewCell
                 cell.textLabel!.text = "\(DetailStrings.moves.localized()) \(getMoves())"
                 cell.textLabel!.numberOfLines = 0
@@ -101,6 +98,15 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
             default:
                 let cell: UITableViewCell = self.infoTable.dequeueReusableCell(withIdentifier: cellIndentifier)! as UITableViewCell
                 return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+            case 0:
+                return 300
+            default:
+                return UITableView.automaticDimension
         }
     }
     

@@ -16,15 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhoIsPlaceholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-PK-IdJ" userLabel="Main Pokemon Image View">
-                                <rect key="frame" x="234" y="362" width="300" height="300"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhoIsPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-PK-IdJ" userLabel="Main Pokemon Image View">
+                                <rect key="frame" x="20" y="100" width="728" height="728"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Fef-Iu-I8B"/>
-                                    <constraint firstAttribute="width" constant="300" id="Yha-EL-Ey2"/>
+                                    <constraint firstAttribute="width" secondItem="h8O-PK-IdJ" secondAttribute="height" multiplier="1:1" id="RBu-DM-oFN"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdT-fS-6Ti" userLabel="Refresh Pokemon">
-                                <rect key="frame" x="297.5" y="262" width="173.5" height="50"/>
+                                <rect key="frame" x="297.5" y="924" width="173.5" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Paj-u8-ehe"/>
                                 </constraints>
@@ -40,7 +39,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIj-cC-o9M" userLabel="Main Pokemon Name">
-                                <rect key="frame" x="384" y="662" width="0.0" height="0.0"/>
+                                <rect key="frame" x="384" y="90" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -49,12 +48,14 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
-                            <constraint firstItem="nIj-cC-o9M" firstAttribute="top" secondItem="h8O-PK-IdJ" secondAttribute="bottom" id="TFK-hp-22M"/>
-                            <constraint firstItem="h8O-PK-IdJ" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Z7f-bw-ybn"/>
+                            <constraint firstItem="h8O-PK-IdJ" firstAttribute="top" secondItem="nIj-cC-o9M" secondAttribute="bottom" constant="10" id="7j8-en-oi9"/>
+                            <constraint firstItem="nIj-cC-o9M" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="RH3-Ze-UQL"/>
+                            <constraint firstItem="h8O-PK-IdJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Yxx-b8-fiS"/>
                             <constraint firstItem="nIj-cC-o9M" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="apu-U9-2G9"/>
-                            <constraint firstItem="h8O-PK-IdJ" firstAttribute="top" secondItem="gdT-fS-6Ti" secondAttribute="bottom" constant="50" id="aye-yY-6Qp"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="gdT-fS-6Ti" secondAttribute="bottom" constant="50" id="aye-yY-6Qp"/>
                             <constraint firstItem="gdT-fS-6Ti" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hip-vu-qpK"/>
-                            <constraint firstItem="h8O-PK-IdJ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="nWt-fc-zex"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="h8O-PK-IdJ" secondAttribute="trailing" constant="20" id="phe-1n-f3R"/>
+                            <constraint firstItem="gdT-fS-6Ti" firstAttribute="top" relation="greaterThanOrEqual" secondItem="h8O-PK-IdJ" secondAttribute="bottom" constant="10" id="qvD-oa-aO8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tiw-5B-943"/>
@@ -94,22 +95,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mu1-UN-1Ru" userLabel="PokemonImage">
-                                <rect key="frame" x="234" y="40" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="LYr-ZG-8zw"/>
-                                    <constraint firstAttribute="height" constant="300" id="g3s-VK-Vsa"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yju-0O-D9R" userLabel="InfoTableView">
-                                <rect key="frame" x="50" y="360" width="668" height="644"/>
+                                <rect key="frame" x="10" y="85" width="748" height="929"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka3-jO-EEO" userLabel="BackButton">
-                                <rect key="frame" x="35" y="25" width="45" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ka3-jO-EEO" userLabel="BackButton">
+                                <rect key="frame" x="15" y="35" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ksZ-uX-ES3"/>
+                                    <constraint firstAttribute="width" constant="40" id="rUm-nY-4Ag"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.backward.circle.fill" catalog="system" imagePadding="0.0"/>
@@ -121,19 +118,18 @@
                         <viewLayoutGuide key="safeArea" id="Gfw-w3-SMh"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
-                            <constraint firstItem="Gfw-w3-SMh" firstAttribute="trailing" secondItem="yju-0O-D9R" secondAttribute="trailing" constant="50" id="ByO-vI-ikm"/>
-                            <constraint firstItem="Gfw-w3-SMh" firstAttribute="bottom" secondItem="yju-0O-D9R" secondAttribute="bottom" constant="20" id="Dc2-8p-lBn"/>
-                            <constraint firstItem="yju-0O-D9R" firstAttribute="leading" secondItem="Gfw-w3-SMh" secondAttribute="leading" constant="50" id="ELN-xv-pHy"/>
-                            <constraint firstItem="mu1-UN-1Ru" firstAttribute="top" secondItem="Gfw-w3-SMh" secondAttribute="top" constant="20" id="IQe-Yp-3ap"/>
-                            <constraint firstItem="mu1-UN-1Ru" firstAttribute="centerX" secondItem="TJJ-Is-e1z" secondAttribute="centerX" id="bOF-8D-hQ6"/>
-                            <constraint firstItem="yju-0O-D9R" firstAttribute="top" secondItem="mu1-UN-1Ru" secondAttribute="bottom" constant="20" id="wTZ-VR-1JH"/>
+                            <constraint firstItem="Gfw-w3-SMh" firstAttribute="trailing" secondItem="yju-0O-D9R" secondAttribute="trailing" constant="10" id="ByO-vI-ikm"/>
+                            <constraint firstItem="Gfw-w3-SMh" firstAttribute="bottom" secondItem="yju-0O-D9R" secondAttribute="bottom" constant="10" id="Dc2-8p-lBn"/>
+                            <constraint firstItem="yju-0O-D9R" firstAttribute="leading" secondItem="Gfw-w3-SMh" secondAttribute="leading" constant="10" id="ELN-xv-pHy"/>
+                            <constraint firstItem="yju-0O-D9R" firstAttribute="top" secondItem="Ka3-jO-EEO" secondAttribute="bottom" constant="10" id="MbS-D9-CLB"/>
+                            <constraint firstItem="Ka3-jO-EEO" firstAttribute="leading" secondItem="Gfw-w3-SMh" secondAttribute="leading" constant="15" id="da8-96-9da"/>
+                            <constraint firstItem="Ka3-jO-EEO" firstAttribute="top" secondItem="Gfw-w3-SMh" secondAttribute="top" constant="15" id="r6p-CJ-UJv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Yzi-0s-mg5"/>
                     <connections>
                         <outlet property="backButton" destination="Ka3-jO-EEO" id="yPy-iz-gcI"/>
                         <outlet property="infoTable" destination="yju-0O-D9R" id="Kwc-uE-07b"/>
-                        <outlet property="pokemonImage" destination="mu1-UN-1Ru" id="WdR-W3-3hb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xcF-Mi-QJA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -142,7 +138,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="WhoIsPlaceholder.png" width="693" height="690"/>
+        <image name="WhoIsPlaceholder" width="693" height="690"/>
         <image name="arrowtriangle.backward.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

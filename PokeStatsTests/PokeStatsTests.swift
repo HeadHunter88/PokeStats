@@ -10,12 +10,18 @@ import XCTest
 
 class PokeStatsTests: XCTestCase {
 
+    var apiUT: API!
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        apiUT = API()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        apiUT = nil
+        try super.tearDownWithError()
     }
 
     func testExample() throws {
@@ -31,6 +37,21 @@ class PokeStatsTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testAPIPokemonReturn() {
+        let pokemonNew = "mew"
+        
+        API.getPokemonInfo(urlArg: "https://pokeapi.co/api/v2/pokemon/mew", completion: { result in
+            switch result {
+                case let .success(currentPokemon):
+                    let testPokemon = currentPokemon
+                    XCTAssert(testPokemon.name == pokemonNew)
+                
+                case let .failure(error):
+                    print("\(error)")
+            }
+        })
     }
 
 }
